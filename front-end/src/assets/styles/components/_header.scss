@@ -1,0 +1,61 @@
+.header {
+    background-color: $secondary-color;
+    color: #fff;
+    display: flex;
+    gap:149px;
+    padding: 1rem;
+    height: 91px;
+    
+    &__logo {
+        width: 178px;
+        height: auto;
+        cursor: pointer;
+        margin-left: 28px;
+    }
+  
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+       
+        
+        a {
+          list-style-type: none;
+          cursor: pointer;
+          font-size: 24px;
+        }
+    
+        &-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap:204px;
+          }
+    
+          &-item {
+            margin-right: 2rem;
+            font-weight: 500;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+    
+          &-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+          }
+          &--active {
+            font-weight: bold;
+            border-bottom: 2px solid $primary-color; // Rouge
+          }
+  
+          &:hover {
+            color: $primary-color; // Rouge
+          }
+      }
+    
+  }
+  
