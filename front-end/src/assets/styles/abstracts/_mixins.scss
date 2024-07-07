@@ -11,3 +11,7 @@
     margin-left: 224px;
     margin-right: 90px;
   }
+  @mixin font($weight, $size) {
+    font-weight: $weight;
+    font-size: $size;
+  }

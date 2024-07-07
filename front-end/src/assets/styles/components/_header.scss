@@ -5,6 +5,10 @@
     gap:149px;
     padding: 1rem;
     height: 91px;
+    z-index: 2;
+	  position: fixed;
+    top: 0px;
+    width: 100%;
     
     &__logo {
         width: 178px;

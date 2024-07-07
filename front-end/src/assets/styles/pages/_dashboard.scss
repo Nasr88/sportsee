@@ -1,0 +1,69 @@
+// Dashboard.scss
+.dashboard {
+    &__header {
+        
+      &__title{
+        color:$primary-color;
+        font-weight: 500;
+        font-size: 48px;
+        margin-bottom: 41px;
+        &--black {
+            color: $secondary-color;
+          }
+        }
+        &__subtitle{
+            @include font(400,18px);
+            color: $secondary-color;
+        }
+  
+     
+        
+      }
+  
+      
+    
+  
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+  
+      .dashboard__chart {
+        width: 100%;
+        max-width: 800px;
+        background-color: $chart-background-color;
+        padding-top: 24px;
+        padding-bottom: 23px;
+        padding-left: 32px;
+        padding-right: 26px;
+      }
+    }
+  
+}
+.chartactivity-title{
+  color: $chart-text-color;
+  @include font(500, 15px);
+  position: absolute;
+}
+.recharts-legend-item-text{
+  @include font(500,14px);
+  color: $text-color !important;
+}
+.recharts-cartesian-axis-tick{
+  @include font(500,14px);
+}
+.recharts-tooltip-wrapper-right , .recharts-tooltip-wrapper-left{
+  width:39px;
+  height: 63px;
+  background-color: $primary-color;
+  color:$background-color;
+  @include font(500,7px);
+  display: flex;
+  flex-direction: column;
+ justify-content: space-between;
+  gap:7px;
+  padding-top:4px ;
+  padding-bottom: 4px;
+  justify-items: center;
+}

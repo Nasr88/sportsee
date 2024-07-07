@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "sass": "^1.77.6"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "recharts": "^2.12.7"
   }
 }
