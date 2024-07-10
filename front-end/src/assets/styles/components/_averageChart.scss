@@ -1,0 +1,24 @@
+.tooltipAverage{
+    width:39px;
+    height: 25px;
+    background-color: white;
+    color:black;
+    @include font(500,8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.averageChart{
+    background-color: $primary-color;
+    padding: 10px;
+    border-radius: 5px;
+    &__title{
+        @include font (500, 15px );
+        color:white;
+        opacity:0.6;
+        position: absolute;
+        padding-top: 29px;
+        padding-left: 34px;
+    }
+}

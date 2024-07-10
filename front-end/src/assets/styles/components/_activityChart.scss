@@ -1,0 +1,28 @@
+
+.chartactivity-title{
+    color: $chart-text-color;
+    @include font(500, 15px);
+    position: absolute;
+  }
+  .recharts-legend-item-text{
+    @include font(500,14px);
+    color: $text-color !important;
+  }
+  .recharts-cartesian-axis-tick{
+    @include font(500,14px);
+  }
+  .tooltip{
+    width:39px;
+    height: 63px;
+    background-color: $primary-color;
+    color:$background-color;
+    @include font(500,7px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top:14px ;
+    padding-bottom: 14px;
+    align-items: center; 
+    margin-left: 10px;
+  }
+  

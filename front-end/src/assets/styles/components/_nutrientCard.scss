@@ -1,0 +1,38 @@
+.nutrient-card {
+    display: flex;
+    align-items: center;
+    background-color:$chart-background-color;
+    padding: 32px;
+    margin: 0;
+  
+    &__icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 20px;
+  
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  
+    &__info {
+      display: flex;
+      flex-direction: column;}
+  
+      &__amount {
+        @include font(700,20px);
+        color: #282d30;
+        margin-bottom: 2px;
+      }
+  
+      &__type {
+        @include font(500, 14px);
+        color: #74798c;
+      }
+    }
+  

@@ -5,8 +5,9 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import { useParams } from 'react-router-dom';
 // import { mockUserDatas} from '../../mocks/userMock';
 import ActivityChart from '../../components/activity/ActivityChart';
+import AverageSessionsChart from '../../components/averageSessionsChart/AverageSessionsChart';
 // import { mockUserActivities } from '../../mocks/activityMock';
-import { getUserData, getUserActivity } from '../../api';
+import { getUserData, getUserActivity, getUserAverageSessions } from '../../api';
 import NutrientCard from '../../components/nutrientCard/NutrientCard';
 
 
@@ -18,6 +19,7 @@ import fatIcon from '../../assets/images/cheeseburger.svg';
 const Dashboard = () => {
   const [data, setData] = useState(null);
   const [activityData, setActivityData] = useState(null);
+  const [averageSessionData, setAverageSessionData] = useState(null);
   const {userId} = useParams();
  
   // Vérifiez userId
@@ -30,6 +32,7 @@ const Dashboard = () => {
     // const activity = mockUserActivities.find((mockUserActivity) => mockUserActivity.userId === +userId);
     
     //fonction pour API
+    
     const fetchUserData = async () => {
       try {
         const userResponse = await getUserData(userId);
@@ -37,10 +40,16 @@ const Dashboard = () => {
 
         const activityResponse = await getUserActivity(userId);
         setActivityData(activityResponse.data.data.sessions);
+
+        const averageSessionResponse = await getUserAverageSessions(userId);
+        setAverageSessionData(averageSessionResponse.data.data.sessions);
+
       } catch (error) {
         console.error('There was an error fetching the data!', error);
       }
     };
+
+
     fetchUserData();
   }, [userId]);
     
@@ -58,7 +67,7 @@ const Dashboard = () => {
     // }, [userId]);
 
     
-    if (!data || !activityData) {
+    if (!data || !activityData || !averageSessionData) {
         return <div>Loading...</div>;
     }
     const { keyData } = data;
@@ -74,16 +83,22 @@ const Dashboard = () => {
             <span className='dashboard__header__subtitle'>Félicitation ! Vous avez explosé vos objectifs hier 👏</span> 
             </div>
             <div className="dashboard__content">
-              <div className="dashboard__chart">
-                <ActivityChart data={activityData} />
-              </div>
+              <section className="dashboard__content__chart">
+                <div className="dashboard__content__chart__activity">
+                  <ActivityChart data={activityData} />
+                </div>
+                <div className="dashboard__content__chart__average">
+                  <AverageSessionsChart data={averageSessionData}/>
+                </div>
+              
+              </section>
+              <section className="dashboard__content__nutrients">
+                <NutrientCard icon={calorieIcon} type="Calories" amount={`${keyData.calorieCount}kCal`} color="#fbeaea" />
+                <NutrientCard icon={proteinIcon} type="Protéines" amount={`${keyData.proteinCount}g`} color="#e9f4fb"/>
+                <NutrientCard icon={carbIcon} type="Glucides" amount={`${keyData.carbohydrateCount}g`} color="#f9f5e4"/>
+                <NutrientCard icon={fatIcon} type="Lipides" amount={`${keyData.lipidCount}g`} color="#fae9ee"/>
+              </section>
             </div>
-            <section className="nutrients">
-              <NutrientCard icon={calorieIcon} type="Calories" amount={`${keyData.calorieCount}kCal`} />
-              <NutrientCard icon={proteinIcon} type="Protéines" amount={`${keyData.proteinCount}g`} />
-              <NutrientCard icon={carbIcon} type="Glucides" amount={`${keyData.carbohydrateCount}g`} />
-              <NutrientCard icon={fatIcon} type="Lipides" amount={`${keyData.lipidCount}g`} />
-            </section>
           </main>
           
         </>
