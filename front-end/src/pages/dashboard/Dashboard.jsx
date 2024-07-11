@@ -87,8 +87,13 @@ const Dashboard = () => {
                 <div className="dashboard__content__chart__activity">
                   <ActivityChart data={activityData} />
                 </div>
-                <div className="dashboard__content__chart__average">
-                  <AverageSessionsChart data={averageSessionData}/>
+                <div className='dashboard__content__chart__smallChart'>
+                  <div className="dashboard__content__chart__smallChart__average">
+                    <AverageSessionsChart data={averageSessionData}/>
+                  </div>
+                  <div className="dashboard__content__chart__smallChart__performance">
+                    
+                  </div>
                 </div>
               
               </section>

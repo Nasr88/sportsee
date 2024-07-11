@@ -2,11 +2,13 @@
 import PropTypes from 'prop-types';
 import CustomToolTipAverage from './CustomToolTipAverage';
 import {
-  AreaChart,
-  Area,
+  
   XAxis,
   YAxis,
   Tooltip,
+  ResponsiveContainer,
+  LineChart,
+  Line
 } from "recharts";
 
 
@@ -28,19 +30,35 @@ const AverageSessionsChart = ({ data }) => {
 				Durée moyenne des <br />
 				sessions
 			</h3>
-      <AreaChart
-         width={258}
-         height={263}
-        data={data}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 10,
-          bottom: 0,
-        }}
-      >
-        <defs>
-        <linearGradient
+      <ResponsiveContainer  width={258} height={263}>
+				<LineChart data={data} margin={{ left: 20, right: 20 }} >
+					<Line
+						type="natural"
+						dataKey="sessionLength"
+						stroke="url(#colorUv)"
+						strokeWidth={2}
+						activeDot={{
+							stroke: '#FFF',
+							strokeWidth: 4,
+							r: 2,
+						}}
+						dot={false}
+					/>
+					<XAxis
+						dataKey="day"
+						axisLine={false}
+						tickLine={false}
+						tick={{
+							fill: 'rgba(255,255,255,0.6)',
+							fontSize: '12px'
+						}}
+						tickFormatter={formatLabel}
+						tickMargin={-30} 
+					/>
+					<Tooltip content={<CustomToolTipAverage />} cursor={false} />
+					<YAxis hide domain={['dataMin-40', 'dataMax+40']} />
+					<defs>
+						<linearGradient
 							id="colorUv"
 							x1="0%"
 							y1="0"
@@ -68,16 +86,9 @@ const AverageSessionsChart = ({ data }) => {
 								stopColor="rgba(255, 255, 255, 1)"
 							/>
 						</linearGradient>
-        </defs>
-        {/* <CartesianGrid strokeDasharray="3 3" /> */}
-        <XAxis dataKey="day" tickFormatter={formatLabel} axisLine={false} tickLine={false} />
-        <YAxis hide domain={['dataMin', 'dataMax+10']} />
-        <Tooltip
-          content={<CustomToolTipAverage />} cursor={false} 
-        />
-        <Area type="monotone" dataKey="sessionLength" stroke="#ffffff" fill="url(#colorUv)" />
-      
-      </AreaChart>
+					</defs>
+				</LineChart>
+			</ResponsiveContainer>
     </div>
   );
 }

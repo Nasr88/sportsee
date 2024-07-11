@@ -33,19 +33,31 @@
         width: 100%;
         max-width: 800px;
         
-        padding-top: 24px;
-        padding-bottom: 23px;
-        padding-left: 32px;
-        padding-right: 26px;
+         padding-top: 77px;
+        // padding-bottom: 23px;
+        // padding-left: 32px;
+        // padding-right: 26px;
+
+
         &__activity{
           background-color: $chart-background-color;
-          padding-bottom: 28px;
+          padding: 24px;
+          margin-bottom: 30px;
+          width:835px;
         }
+     
+      &__smallChart{
+        display: flex;
+        flex-direction: row;
+        column-gap:30px;
         &__average{
           width:258px;
           height: 263px;
         }
+
       }
+    } 
+      
       &__nutrients{
         display:flex;
         flex-direction: column;
