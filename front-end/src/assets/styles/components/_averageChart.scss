@@ -6,21 +6,17 @@
     @include font(500,8px);
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center; 
 }
 .averageChart{
     background-color: $primary-color;
-    
     border-radius: 5px;
-    
     &__title{
         @include font (500, 15px );
         color:white;
         opacity:0.6;
         position: absolute;
         padding-top: 29px;
-        
         padding-left: 34px;
     }
 }

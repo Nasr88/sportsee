@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 // import { mockUserDatas} from '../../mocks/userMock';
 import ActivityChart from '../../components/activity/ActivityChart';
 import AverageSessionsChart from '../../components/averageSessionsChart/AverageSessionsChart';
+import ChartPerformance from '../../components/performanceChart/PerformanceChart';
 // import { mockUserActivities } from '../../mocks/activityMock';
 import { getUserData, getUserActivity, getUserAverageSessions } from '../../api';
 import NutrientCard from '../../components/nutrientCard/NutrientCard';
@@ -15,6 +16,7 @@ import calorieIcon from '../../assets/images/energy.svg';
 import proteinIcon from '../../assets/images/chicken.svg';
 import carbIcon from '../../assets/images/apple.svg';
 import fatIcon from '../../assets/images/cheeseburger.svg';
+import Score from '../../components/KPI/Score';
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
@@ -43,7 +45,8 @@ const Dashboard = () => {
 
         const averageSessionResponse = await getUserAverageSessions(userId);
         setAverageSessionData(averageSessionResponse.data.data.sessions);
-
+      
+        
       } catch (error) {
         console.error('There was an error fetching the data!', error);
       }
@@ -67,7 +70,7 @@ const Dashboard = () => {
     // }, [userId]);
 
     
-    if (!data || !activityData || !averageSessionData) {
+    if (!data || !activityData || !averageSessionData ) {
         return <div>Loading...</div>;
     }
     const { keyData } = data;
@@ -92,7 +95,10 @@ const Dashboard = () => {
                     <AverageSessionsChart data={averageSessionData}/>
                   </div>
                   <div className="dashboard__content__chart__smallChart__performance">
-                    
+                    <ChartPerformance />
+                  </div>
+                  <div className="dashboard__content__chart__smallChart__score">
+                    <Score />
                   </div>
                 </div>
               

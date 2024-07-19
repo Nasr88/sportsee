@@ -26,7 +26,7 @@
     &__content {
       display: flex;
       flex-direction: row;
-      gap:31px;
+      // gap:31px;
       margin-top: 20px;
   
       &__chart {
@@ -44,6 +44,7 @@
           padding: 24px;
           margin-bottom: 30px;
           width:835px;
+          max-height: 320px;
         }
      
       &__smallChart{
@@ -54,6 +55,43 @@
           width:258px;
           height: 263px;
         }
+        &__performance{
+          width:258px;
+          height: 263px;
+          background-color: #282D30 ;
+          color:white;
+          @include font(500,12px);
+          border-radius: 5px;
+        }
+        &__score{
+          background-color: #FBFBFB;
+          border-radius: 5px;
+          &__title{
+            @include font(500,15px);
+            color: $chart-text-color;
+            position: absolute;
+            padding-top:24px;
+            padding-left:30px;
+          }
+          &__pourcentage{
+            position:absolute;
+            top:40px;
+            right: 55px;
+            @include font(700,26px);
+            color:#282D30;
+            
+            &__text{
+              position: absolute;
+              top:68px;
+              right: 49px;
+              @include font(500,16px);
+              color:#74798C;
+              width:60px;
+            }
+          }
+         
+        }
+        
 
       }
     } 
@@ -62,7 +100,19 @@
         display:flex;
         flex-direction: column;
         gap:39px;
+        margin-left:60px;
+        padding-top: 77px;
       }
     }
   
+}
+.rond{
+  position: absolute;
+  width: 159.38px;
+            height: 159.38px;
+            border-radius: 50%;
+            background-color: white;
+         
+            top: 805px;
+    right: 510px;
 }
