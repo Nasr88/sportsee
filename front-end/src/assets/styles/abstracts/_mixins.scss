@@ -1,9 +1,11 @@
 // Mixins pour responsive design
 @mixin respond-to($media) {
-    @if $media == "large" {
-      @media (max-width: 1024px) { @content; }
+  @if $media == "large" {
+    @media (min-width: 1024px) and (min-height: 780px) { 
+      @content; 
     }
   }
+}
 
   @mixin bordurePage{
     margin-top: 159px;

@@ -15,14 +15,8 @@
             @include font(400,18px);
             color: $secondary-color;
         }
-  
-     
-        
       }
-  
-      
-    
-  
+
     &__content {
       display: flex;
       flex-direction: row;
@@ -105,14 +99,4 @@
       }
     }
   
-}
-.rond{
-  position: absolute;
-  width: 159.38px;
-            height: 159.38px;
-            border-radius: 50%;
-            background-color: white;
-         
-            top: 805px;
-    right: 510px;
 }
