@@ -79,6 +79,7 @@ const Dashboard = () => {
         <>
           <Header />
           <Sidebar/>
+          <div className='container'>
           <main className='dashboard'>
           <div className="dashboard__header">
             {data ? <div className='dashboard__header__title'>
@@ -111,7 +112,7 @@ const Dashboard = () => {
               </section>
             </div>
           </main>
-          
+          </div>
         </>
     
   );

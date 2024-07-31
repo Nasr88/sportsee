@@ -30,7 +30,7 @@ const AverageSessionsChart = ({ data }) => {
 				Durée moyenne des <br />
 				sessions
 			</h3>
-      <ResponsiveContainer  width={258} height={263}>
+     <ResponsiveContainer  width={258} height={263}> 
 				<LineChart data={data} margin={{ left: 20, right: 20 }} >
 					<Line
 						type="natural"

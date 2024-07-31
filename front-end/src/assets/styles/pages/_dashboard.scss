@@ -1,7 +1,12 @@
 // Dashboard.scss
 .dashboard {
+  width:100%;
+  display:flex;
+  flex-direction: column;
+
+  
     &__header {
-        
+      
       &__title{
         color:$primary-color;
         font-weight: 500;
@@ -18,36 +23,39 @@
       }
 
     &__content {
+      
       display: flex;
       flex-direction: row;
       // gap:31px;
-      margin-top: 20px;
+      //margin-top: 20px;
+      width:100%;
   
       &__chart {
-        width: 100%;
-        max-width: 800px;
         
          padding-top: 77px;
         // padding-bottom: 23px;
         // padding-left: 32px;
         // padding-right: 26px;
 
-
         &__activity{
           background-color: $chart-background-color;
           padding: 24px;
           margin-bottom: 30px;
-          width:835px;
+          
           max-height: 320px;
+       
         }
      
       &__smallChart{
         display: flex;
         flex-direction: row;
         column-gap:30px;
+        
+  
         &__average{
           width:258px;
           height: 263px;
+         
         }
         &__performance{
           width:258px;
@@ -91,12 +99,19 @@
     } 
       
       &__nutrients{
+        
         display:flex;
         flex-direction: column;
         gap:39px;
         margin-left:60px;
         padding-top: 77px;
+        // @include respond-to('large') {
+        //   width:20%;
+        // }
       }
     }
   
+}
+.container{
+  width:100%;
 }

@@ -12,6 +12,11 @@
     margin-bottom: 86px;
     margin-left: 224px;
     margin-right: 90px;
+    @include respond-to('large') {
+      margin-left: 190px;
+      margin-right: 90px;
+     }
+
   }
   @mixin font($weight, $size) {
     font-weight: $weight;
