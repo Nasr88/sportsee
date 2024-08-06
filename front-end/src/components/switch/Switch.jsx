@@ -1,18 +1,19 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-
+import  { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
 
 function Switch(){
-    const [userId, setUserId] = useState(12);
+    const { userId, setUserId } = useContext(UserContext);
     const toggleSwitch = () => {
-        setUserId(userId == 12 ? 18 : 12);
+        setUserId(prevUserId => (prevUserId === 12 ? 18 : 12));
     }
     return (
         <div className='switch'>
-            <h1 className="switch__txt">Choix d&apos;utilisateur:</h1>
+            <span className="switch__txt">Choix d&apos;utilisateur:</span>
             <label className="switch__btn">
-                <input type="checkbox" checked={userId === 12} onChange={toggleSwitch} />
+                <input type="checkbox" checked={userId === 18} onChange={toggleSwitch} />
                 <span className="slider"></span>
                 <span className="value">{userId}</span>
             </label>

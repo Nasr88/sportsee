@@ -1,4 +1,4 @@
-import  { useEffect, useState} from 'react';
+import  { useEffect, useState, useContext} from 'react';
 //import api from '../../api';
 import Header from '../../components/header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
@@ -18,11 +18,22 @@ import carbIcon from '../../assets/images/apple.svg';
 import fatIcon from '../../assets/images/cheeseburger.svg';
 import Score from '../../components/KPI/Score';
 
+import { UserContext } from '../../contexts/UserContext';
+
 const Dashboard = () => {
+  const { userId, setUserId } = useContext(UserContext);
   const [data, setData] = useState(null);
   const [activityData, setActivityData] = useState(null);
   const [averageSessionData, setAverageSessionData] = useState(null);
-  const {userId} = useParams();
+  const {userId: paramUserId} = useParams();
+
+  useEffect(() => {console.log("context==>",userId)},[userId])
+
+  useEffect(() => {
+    if (paramUserId) {
+      setUserId(Number(paramUserId));
+    }
+  }, [paramUserId, setUserId]);
  
   // Vérifiez userId
   console.log('User ID:', userId);

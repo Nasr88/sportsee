@@ -1,8 +1,10 @@
 
 import { NavLink, } from "react-router-dom";
-
+import { useContext } from 'react'
+import { UserContext } from "../../contexts/UserContext";
 const Nav = () => {
-    const userId = 18;
+    const { userId } = useContext(UserContext);
+
     
     return (
         <nav className="header__nav">
