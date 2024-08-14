@@ -8,4 +8,7 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Assurez-vous que le répertoire de sortie est correct
   },
-})
+  server: {
+    port: 3001, // spécifier le port
+  }
+});

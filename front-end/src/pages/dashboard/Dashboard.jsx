@@ -25,15 +25,18 @@ const Dashboard = () => {
   const [data, setData] = useState(null);
   const [activityData, setActivityData] = useState(null);
   const [averageSessionData, setAverageSessionData] = useState(null);
+  // Extraction de userId depuis les paramètres d'URL :
   const {userId: paramUserId} = useParams();
 
   useEffect(() => {console.log("context==>",userId)},[userId])
 
+//  assure que chaque fois que l'ID utilisateur dans l'URL change,
+//  l'ID utilisateur global de l'application est mis à jour en conséquence.
   useEffect(() => {
     if (paramUserId) {
       setUserId(Number(paramUserId));
     }
-  }, [paramUserId, setUserId]);
+  }, [paramUserId, setUserId]);  
  
   // Vérifiez userId
   console.log('User ID:', userId);

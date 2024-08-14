@@ -1,0 +1,16 @@
+.comingSoon{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include bordurePage;
+    &__title{
+        
+        @include font(500,2rem);
+        color: #000;
+        margin-bottom: 50px;
+    }
+    &__txt{
+        @include font(500,1rem);
+    }
+}
