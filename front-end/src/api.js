@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000', // l'URL de backend
+  baseURL: 'https://sportsee.onrender.com', // l'URL de backend
 });
 export const getUserData = (userId) => {
   return api.get(`/user/${userId}`);
