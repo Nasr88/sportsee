@@ -18,6 +18,7 @@ function CustomToolTipAverage({ active, payload }) {
 	return null
 }
 
+
 CustomToolTipAverage.propTypes = {
 	/**
 	 * Whether or not the tooltip is active

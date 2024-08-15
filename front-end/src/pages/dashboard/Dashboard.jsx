@@ -97,7 +97,7 @@ const Dashboard = () => {
           <main className='dashboard'>
           <div className="dashboard__header">
             {data ? <div className='dashboard__header__title'>
-                <span className='dashboard__header__title--black'>Bonjour </span> {data.userInfos.firstName} </div> : <div>Loading...</div>} 
+                <span className='dashboard__header__title--black'>Bonjour </span> {data.userInfos.firstName.replace("(api)","")} </div> : <div>Loading...</div>} 
             <span className='dashboard__header__subtitle'>Félicitation ! Vous avez explosé vos objectifs hier 👏</span> 
             </div>
             <div className="dashboard__content">

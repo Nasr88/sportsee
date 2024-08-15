@@ -10,6 +10,7 @@ import {
   LineChart,
   Line
 } from "recharts";
+import CustomCursor from './CustomCursor';
 
 
 const AverageSessionsChart = ({ data }) => {
@@ -55,7 +56,7 @@ const AverageSessionsChart = ({ data }) => {
 						tickFormatter={formatLabel}
 						tickMargin={-30} 
 					/>
-					<Tooltip content={<CustomToolTipAverage />} cursor={false} />
+					<Tooltip content={<CustomToolTipAverage />} cursor={<CustomCursor/>} />
 					<YAxis hide domain={['dataMin-40', 'dataMax+40']} />
 					<defs>
 						<linearGradient
