@@ -4,6 +4,7 @@
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Switch from "../../components/switch/Switch";
+import SwitchData from "../../components/switch/SwichData";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Sidebar/>
       
       <Switch/>
+      <SwitchData />
     </div>
   );
 };

@@ -1,7 +1,8 @@
-import { useEffect,useState } from "react";
+import { useContext, useEffect,useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer} from "recharts";
 import {getUserData} from '../../api';
 import { useParams } from "react-router-dom";
+import { DataContext } from "../../contexts/DataContext";
 
 
 const COLORS = ["#E60000", "#FBFBFB"];
@@ -9,11 +10,12 @@ const COLORS = ["#E60000", "#FBFBFB"];
 const  Score= () =>{
     const [data, setData] = useState(null);
     const {userId} = useParams();
+    const {mocked} = useContext(DataContext)
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const userResponse = await getUserData(userId);
-                const score = userResponse.data.data.score ?? userResponse.data.data.todayScore;
+                const userResponse = await getUserData(mocked,userId);
+                const score = mocked ? userResponse.data.score ?? userResponse.data.todayScore :  userResponse.data.data.score ?? userResponse.data.data.todayScore;
                 
                 const scoreData = [
                   { name: "Group A", value: score},

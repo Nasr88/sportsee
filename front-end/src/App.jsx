@@ -5,12 +5,14 @@ import Home from './pages/home/Home';
 import './assets/styles/main.scss';
 import Community from './pages/community/Community';
 import Settings from './pages/settings/Settings';
+import { DataProvider } from './contexts/DataContext';
 
 
 const App = () => {
   return (
     // ajouter userprovider permet d'utiliser le UserContext partout dans l'application (dans tous les composants enfants).
     <UserProvider>
+      <DataProvider>
       <Router basename="/sportsee">
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -19,6 +21,7 @@ const App = () => {
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>
+      </DataProvider>
     </UserProvider>
   );
 };
