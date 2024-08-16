@@ -31,7 +31,9 @@ export default function PerformanceChart() {
               throw new Error('User not found in mock data');
             }
           } else {
-            performanceResponse = await getUserPerformance(userId);
+            // performanceResponse = await getUserPerformance(userId);
+            const response = await getUserPerformance(false, userId);
+            performanceResponse= response.data ? response.data : response;
           }
 
           const { kind, data } = performanceResponse.data;
